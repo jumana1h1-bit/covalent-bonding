@@ -26,10 +26,11 @@ button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--c
 .op{display:block;width:100%;text-align:start;margin-top:8px}.op.ok{background:var(--ok);color:#fff;border-color:var(--ok)}.op.no{background:var(--no);color:#fff;border-color:var(--no)}
 footer{text-align:center;color:var(--mut);padding:24px 16px 40px;font-size:14px}
 </style></head><body>
-<header><b>⚛ <span data-t="brand"></span></b><nav><a href="#lab" data-t="n1"></a><a href="#props" data-t="n2"></a><a href="#report" data-t="n3"></a><a href="#quiz" data-t="n4"></a></nav><button id="lb" onclick="tog()">EN</button></header>
+<header><b>⚛ <span data-t="brand"></span></b><nav><a href="#lab" data-t="n1"></a><a href="#build" data-t="bt"></a><a href="#props" data-t="n2"></a><a href="#report" data-t="n3"></a><a href="#quiz" data-t="n4"></a></nav><button id="lb" onclick="tog()">EN</button></header>
 <section class="hero"><h1 data-t="h1"></h1><p data-t="sub"></p></section>
 <section id="lab" class="wrap"><h2 data-t="n1"></h2><div id="chips" class="chips"></div>
-<div class="card"><div id="mt" class="mt"></div><svg id="svg" viewBox="0 0 440 260" role="img"></svg><p class="lg" data-t="leg"></p><div id="stp" class="stp"></div><p id="ex" class="ex"></p><div class="ctl"><button id="pv" onclick="go(-1)" data-t="prev"></button><button id="nx" onclick="go(1)" data-t="next"></button></div></div></section>
+<div class="card"><div id="mt" class="mt"></div><svg id="svg" viewBox="0 0 440 260" role="img"></svg><p class="lg" data-t="leg"></p><div id="stp" class="stp"></div><p id="ex" class="ex"></p><div class="ctl"><button id="pv" onclick="go(-1)" data-t="prev"></button><button id="ap" onclick="play()" data-t="pl"></button><button id="nx" onclick="go(1)" data-t="next"></button></div></div></section>
+<section id="build" class="wrap"><h2 data-t="bt"></h2><div class="card"><div class="fl"><select id="bc" onchange="bs=0;bld()"></select><button id="bh" onclick="bs++;bld()"></button><button onclick="bs=0;bld()" data-t="rs"></button></div><svg id="bsvg" viewBox="0 0 440 260" style="width:100%;max-height:260px;background:var(--hi);border-radius:12px"></svg><p id="bm" class="ex"></p></div></section>
 <section id="props" class="wrap"><h2 data-t="n2"></h2><div class="card"><div class="fl"><input id="q" oninput="tbl()"><select id="fs" onchange="tbl()"></select><select id="ft" onchange="tbl()"></select></div><div class="sc"><table><thead id="th"></thead><tbody id="tb"></tbody></table></div></div>
 <div class="card"><h3 data-t="pt"></h3><div class="fl"><select id="ps" onchange="pred()"></select></div><dl id="po" class="pr"></dl></div></section>
 <section id="report" class="wrap"><h2 data-t="n3"></h2><p data-t="ri"></p><h3 data-t="r1"></h3><div id="c1" class="g"></div><h3 style="margin-top:20px" data-t="r2"></h3><div id="c2" class="g"></div><h3 style="margin-top:20px" data-t="r3"></h3><div class="card sc"><table><thead id="ch"></thead><tbody id="cb"></tbody></table></div></section>
@@ -43,7 +44,7 @@ leg:['● إلكترون من إحدى الذرتين  ×  إلكترون من �
 pt:['مُتنبئ الخصائص: اختر نوع البنية','Property predictor: choose a structure type'],
 ri:['رغم أن معظم المواد التساهمية رديئة التوصيل ودرجات انصهارها منخفضة، فهناك حالات متقدمة غيّرت الصناعة الحديثة.','Most covalent substances are poor conductors with low melting points, but some advanced cases have reshaped modern industry.'],
 r1:['١. مواد تساهمية موصلة للكهرباء','1. Covalent materials that conduct electricity'],r2:['٢. مواد تساهمية حلّت محل الفلزات','2. Covalent materials replacing metals'],r3:['٣. مقارنة مع الفلزات التقليدية','3. Comparison with traditional metals'],
-rs:['إعادة','Retry'],ft2:['مصدر المعلومات تقريبي لأغراض تعليمية.','Values are approximate, for teaching.'],sc:['النتيجة','Score'],q:['ابحث بالاسم أو الصيغة…','Search name or formula…']};
+pl:['▶ تشغيل تلقائي','▶ Auto-play'],bt:['ابنِ جزيئك بنفسك','Build your own molecule'],rs:['إعادة','Retry'],ft2:['مصدر المعلومات تقريبي لأغراض تعليمية.','Values are approximate, for teaching.'],sc:['النتيجة','Score'],q:['ابحث بالاسم أو الصيغة…','Search name or formula…']};
 const KN=[['','single','double','triple'],['','أحادية','ثنائية','ثلاثية']];
 const STP=[['١ · الذرات المنفصلة','٢ · المشاركة','٣ · الجزيء النهائي'],['1 · Separate atoms','2 · Sharing','3 · Final molecule']];
 const M=[
@@ -62,16 +63,20 @@ const ang=(i,j)=>(Math.atan2(P[j][1]-P[i][1],P[j][0]-P[i][0])*180/Math.PI+360)%3
 if(s)m.b.forEach(([i,j,n])=>{const[a,b]=[P[i],P[j]],L2=Math.hypot(b[0]-a[0],b[1]-a[1]),d=[(b[0]-a[0])/L2,(b[1]-a[1])/L2],nm=[-d[1],d[0]],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2;
 o+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="var(--bd)" stroke-width="2" stroke-dasharray="4 4"/>`;
 for(let q=0;q<n;q++){const f=(q-(n-1)/2)*15,cx=mx+nm[0]*f,cy=my+nm[1]*f;o+=`<circle class="pl" cx="${cx}" cy="${cy}" r="11" fill="var(--acc)" opacity=".25"/>`+mk(cx-d[0]*5,cy-d[1]*5,m.a[i][3])+mk(cx+d[0]*5,cy+d[1]*5,m.a[j][3])}});
-m.a.forEach((a,i)=>{const[x,y]=P[i];o+=`<circle cx="${x}" cy="${y}" r="15" fill="${CL[a[0]]}"/><text x="${x}" y="${y+5}" text-anchor="middle" font-size="${a[0]=='Cl'?12:14}" font-weight="800" fill="#fff">${a[0]}</text>`;
+m.a.forEach((a,i)=>{const[x,y]=P[i];o+=`<circle cx="${x}" cy="${y}" r="15" fill="${CL[a[0]]}"><title>${a[0]}: ${V[a[0]]} e⁻</title></circle><text x="${x}" y="${y+5}" text-anchor="middle" font-size="${a[0]=='Cl'?12:14}" font-weight="800" fill="#fff">${a[0]}</text>`;
 if(!s)for(let e=0;e<V[a[0]];e++){const th=(-90+e*360/V[a[0]])*Math.PI/180;o+=mk(x+28*Math.cos(th),y+28*Math.sin(th),a[3])}
 if(s>1){const bs=m.b.reduce((z,b)=>z+(b[0]==i||b[1]==i?b[2]:0),0),used=[];m.b.forEach(([p,q])=>{if(p==i)used.push(ang(i,q));if(q==i)used.push(ang(i,p))});
-for(let l=0;l<(V[a[0]]-bs)/2;l++){let best=0,bd=-1;for(let c=0;c<360;c+=30){const d=Math.min(...used.map(u=>{const z=Math.abs(c-u)%360;return z>180?360-z:z}));if(d>bd){bd=d;best=c}}used.push(best);const r=best*Math.PI/180,px=x+28*Math.cos(r),py=y+28*Math.sin(r),ox=-Math.sin(r)*5,oy=Math.cos(r)*5;o+=mk(px+ox,py+oy,a[3])+mk(px-ox,py-oy,a[3])}}});
+for(let l=0;l<Math.floor((V[a[0]]-bs)/2);l++){let best=0,bd=-1;for(let c=0;c<360;c+=30){const d=Math.min(...used.map(u=>{const z=Math.abs(c-u)%360;return z>180?360-z:z}));if(d>bd){bd=d;best=c}}used.push(best);const r=best*Math.PI/180,px=x+28*Math.cos(r),py=y+28*Math.sin(r),ox=-Math.sin(r)*5,oy=Math.cos(r)*5;o+=mk(px+ox,py+oy,a[3])+mk(px-ox,py-oy,a[3])}}});
 return o+'</g>'}
 function lab(){const m=M[mi];$('#chips').innerHTML=M.map((x,i)=>`<button class="chip ${i==mi?'on':''}" onclick="mi=${i};st=0;lab()">${x.f}</button>`).join('');$('#mt').textContent=m.f+' — '+m.n[L];$('#svg').innerHTML=draw(m,st);
 $('#stp').innerHTML=STP[L].map((x,i)=>`<button class="${i==st?'on':''}" onclick="st=${i};lab()">${x}</button>`).join('');
 const tot=m.b.reduce((z,b)=>z+b[2],0),kd=[...new Set(m.b.map(b=>b[2]))].map(n=>KN[L][n]).join(L?' & ':' و '),sy=[...new Set(m.a.map(a=>a[0]))];
 $('#ex').textContent=st==0?(L?'Separate atoms and their valence electrons: ':'الذرات المنفصلة وإلكترونات تكافؤها: ')+sy.map(s=>`${s} = ${V[s]}`).join(L?', ':'، '):st==1?(L?`The atoms share ${tot} electron pair(s), forming ${kd} covalent bond(s).`:`تتشارك الذرات ${tot} زوج(ًا) من الإلكترونات فتتكوّن رابطة تساهمية ${kd}.`):(L?'Final molecule: lone pairs are shown, and every atom now has a full shell. ':'الجزيء النهائي: ظهرت الأزواج الحرة وصار لكل ذرة غلاف مكتمل. ')+m.t[L];
 $('#pv').disabled=st==0;$('#nx').disabled=st==2}
+let bs=0,tm;function play(){clearInterval(tm);st=0;lab();tm=setInterval(()=>{if(st>=2){clearInterval(tm);return}st++;lab()},1800)}
+function bld(){const c=$('#bc').value||'C',need=c=='Cl'?1:8-V[c],a=[[c,0,0,0]],b=[],F={C:'CH₄',N:'NH₃',O:'H₂O',Cl:'HCl'};for(let i=0;i<bs;i++){const r=(90+i*360/bs)*Math.PI/180;a.push(['H',Math.round(85*Math.cos(r)),Math.round(85*Math.sin(r)),1]);b.push([0,i+1,1])}
+$('#bsvg').innerHTML=draw({a,b},2);$('#bh').textContent=L?'+ Hydrogen atom':'+ ذرة هيدروجين';$('#bh').disabled=bs>=need;
+$('#bm').textContent=bs>=need?(L?`Well done! ${F[c]} forms: every atom now has a full shell.`:`أحسنت! تكوّن ${F[c]} واكتملت أغلفة كل الذرات.`):(L?`${c} has ${V[c]} valence electrons and needs ${need-bs} more bond(s). Add hydrogen atoms.`:`يحتاج ${c} إلى ${need-bs} رابطة/روابط إضافية. أضف ذرات هيدروجين.`)}
 function go(d){st=Math.max(0,Math.min(2,st+d));lab()}
 const W={g:['غاز','Gas'],l:['سائل','Liquid'],s:['صلب','Solid']},SO={y:['ذائب','Soluble'],p:['قليل الذوبان','Slightly'],n:['لا يذوب','Insoluble']},CD={y:['موصل','Conducts'],n:['غير موصل','Insulator']},SB={s:['جزيئية بسيطة','Simple molecular'],g:['شبكية عملاقة','Giant covalent']},SUB=['تسامي','sublimes'];
 const R=[[['الهيدروجين','Hydrogen'],'H₂','s',-259,-253,'g','p','n'],[['الكلور','Chlorine'],'Cl₂','s',-101,-34,'g','p','n'],[['الماء','Water'],'H₂O','s',0,100,'l','y','n'],[['الميثان','Methane'],'CH₄','s',-182,-162,'g','n','n'],[['الأمونيا','Ammonia'],'NH₃','s',-78,-33,'g','y','n'],[['ثاني أكسيد الكربون','Carbon dioxide'],'CO₂','s',-78,SUB,'g','p','n'],[['الإيثانول','Ethanol'],'C₂H₅OH','s',-114,78,'l','y','n'],[['السكروز','Sucrose'],'C₁₂H₂₂O₁₁','s',186,['يتحلل','decomposes'],'s','y','n'],[['اليود','Iodine'],'I₂','s',114,184,'s','p','n'],[['الألماس','Diamond'],'C','g',3550,4827,'s','n','n'],[['الجرافيت','Graphite'],'C','g',3650,SUB,'s','n','y'],[['رمل (SiO₂)','Silica (SiO₂)'],'SiO₂','g',1710,2230,'s','n','n']];
@@ -96,12 +101,12 @@ const Q=[[['كيف تتكوّن الرابطة التساهمية؟','How does a
 [['لماذا تنخفض درجات انصهار المواد الجزيئية البسيطة؟','Why do simple molecular substances have low melting points?'],[['القوى بين الجزيئات ضعيفة','Forces between molecules are weak'],['الروابط التساهمية ضعيفة','Covalent bonds are weak'],['فيها إلكترونات حرة','They contain free electrons']],0],
 [['ما ميزة ألياف الكربون على الفولاذ؟','What advantage does carbon fibre have over steel?'],[['أخف ولا تصدأ','Lighter and does not rust'],['أرخص دائمًا','Always cheaper'],['أثقل وأصلب','Heavier and harder']],0]];
 function quiz(){$('#qz').innerHTML=Q.map((q,i)=>`<div class="card"><b>${i+1}. ${q[0][L]}</b>`+q[1].map((o,j)=>`<button class="op ${A[i]==null?'':j==q[2]?'ok':A[i]==j?'no':''}" onclick="if(A[${i}]==null){A[${i}]=${j};quiz()}">${o[L]}</button>`).join('')+'</div>').join('');
-$('#sc').textContent=T.sc[L]+': '+Q.filter((q,i)=>A[i]==q[2]).length+'/'+Q.length}
+const n=Q.filter((q,i)=>A[i]==q[2]).length;$('#sc').textContent=T.sc[L]+': '+n+'/'+Q.length+(A.filter(x=>x!=null).length==Q.length?(n>=4?' 🎉':' 💪'):'')}
 function render(){document.documentElement.lang=L?'en':'ar';document.documentElement.dir=L?'ltr':'rtl';$('#lb').textContent=L?'عربي':'EN';document.title=T.h1[L];
 document.querySelectorAll('[data-t]').forEach(e=>e.textContent=T[e.dataset.t][L]);$('#q').placeholder=T.q[L];
 opts($('#fs'),['','g','l','s'],[L?'All states':'كل الحالات',...['g','l','s'].map(k=>W[k][L])]);opts($('#ft'),['','s','g'],[L?'All structures':'كل البُنى',SB.s[L],SB.g[L]]);
 opts($('#ps'),['s','g','d'],[SB.s[L],SB.g[L],L?'Giant covalent with free electrons (graphite)':'شبكية عملاقة بإلكترونات حرة (جرافيت)']);
-lab();tbl();pred();cards(C1,'#c1');cards(C2,'#c2');$('#ch').innerHTML='<tr>'+CH[L].map(x=>`<th>${x}</th>`).join('')+'</tr>';$('#cb').innerHTML=CB.map(r=>'<tr>'+r.map((c,i)=>`<td>${i?c[L]:'<b>'+c[L]+'</b>'}</td>`).join('')+'</tr>').join('');quiz()}
+opts($('#bc'),['C','N','O','Cl'],[L?'Carbon':'كربون',L?'Nitrogen':'نيتروجين',L?'Oxygen':'أكسجين',L?'Chlorine':'كلور']);lab();tbl();pred();bld();cards(C1,'#c1');cards(C2,'#c2');$('#ch').innerHTML='<tr>'+CH[L].map(x=>`<th>${x}</th>`).join('')+'</tr>';$('#cb').innerHTML=CB.map(r=>'<tr>'+r.map((c,i)=>`<td>${i?c[L]:'<b>'+c[L]+'</b>'}</td>`).join('')+'</tr>').join('');quiz()}
 function tog(){document.body.style.opacity=0;setTimeout(()=>{L=1-L;try{render()}finally{document.body.style.opacity=1}},220)}
 render();
 </script></body></html>
