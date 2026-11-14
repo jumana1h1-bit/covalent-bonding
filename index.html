@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>الرابطة التساهمية · Covalent Bonding</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef5f4;--card:#fff;--tx:#12303a;--mut:#58727c;--pri:#0b7a75;--acc:#e8731a;--bd:#d3e3e1;--hi:#dff2ef;--ok:#1b8a4b;--no:#c93c3c;--dot:#0b7a75;--x:#e8731a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1b20;--card:#15292f;--tx:#e4f1ef;--mut:#92b0b0;--pri:#3fc9bf;--acc:#ffa04d;--bd:#27444a;--hi:#1c3b40;--ok:#4cc58a;--no:#ff7b7b}}
+:root[data-theme="dark"]{--bg:#0d1b20;--card:#15292f;--tx:#e4f1ef;--mut:#92b0b0;--pri:#3fc9bf;--acc:#ffa04d;--bd:#27444a;--hi:#1c3b40;--ok:#4cc58a;--no:#ff7b7b}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.75 Tajawal,system-ui,sans-serif;transition:opacity .25s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;padding:8px 14px}
+header b{white-space:nowrap}nav{display:flex;gap:4px;overflow-x:auto;flex:1}nav a{color:var(--mut);text-decoration:none;padding:6px 12px;border-radius:99px;white-space:nowrap;font-size:14px}nav a:hover{background:var(--hi);color:var(--pri)}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:7px 14px}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+#lb{background:var(--pri);color:#fff;border:0;font-weight:700}
+.hero{padding:44px 18px 30px;text-align:start;max-width:1000px;margin:auto}.hero h1{font-size:clamp(28px,6vw,48px);line-height:1.2;margin:0 0 10px;font-weight:800;color:var(--pri)}.hero p{max-width:60ch;color:var(--mut);font-size:18px;margin:0}
+.wrap{max-width:1000px;margin:0 auto;padding:22px 16px}h2{font-size:26px;margin:0 0 14px}h3{margin:0 0 6px;font-size:18px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.chip{font-weight:700;min-width:58px}.on{background:var(--pri)!important;color:#fff!important;border-color:var(--pri)!important}
+#svg{width:100%;max-height:300px;background:var(--hi);border-radius:12px}.mt{font-weight:800;font-size:20px;margin-bottom:8px}
+.stp,.ctl{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.ctl{justify-content:space-between}.ctl button{flex:1;background:var(--acc);color:#fff;border:0;font-weight:700}.ctl button:disabled{opacity:.4;cursor:default}
+.ex{background:var(--hi);border-inline-start:4px solid var(--acc);padding:10px 14px;border-radius:8px;margin:0}.lg{color:var(--mut);font-size:14px;margin:8px 0 0}
+.fi{animation:fi .6s ease both}.pl{animation:pl 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes fi{from{opacity:0}}@keyframes pl{50%{transform:scale(1.35);opacity:.5}}@media(prefers-reduced-motion:reduce){.fi,.pl{animation:none}}
+.fl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}input,select{font:inherit;padding:8px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);flex:1;min-width:130px}
+.sc{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:640px}th,td{padding:9px 10px;border-bottom:1px solid var(--bd);text-align:start}th{background:var(--hi);color:var(--pri);font-size:14px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.g .card{margin:0}.tag{display:inline-block;background:var(--hi);color:var(--pri);border-radius:6px;padding:0 8px;font-size:13px;font-weight:700}
+.pr dt{font-weight:700;color:var(--pri)}.pr dd{margin:0 0 8px}
+.op{display:block;width:100%;text-align:start;margin-top:8px}.op.ok{background:var(--ok);color:#fff;border-color:var(--ok)}.op.no{background:var(--no);color:#fff;border-color:var(--no)}
+footer{text-align:center;color:var(--mut);padding:24px 16px 40px;font-size:14px}
+</style></head><body>
+<header><b>⚛ <span data-t="brand"></span></b><nav><a href="#lab" data-t="n1"></a><a href="#props" data-t="n2"></a><a href="#report" data-t="n3"></a><a href="#quiz" data-t="n4"></a></nav><button id="lb" onclick="tog()">EN</button></header>
+<section class="hero"><h1 data-t="h1"></h1><p data-t="sub"></p></section>
+<section id="lab" class="wrap"><h2 data-t="n1"></h2><div id="chips" class="chips"></div>
+<div class="card"><div id="mt" class="mt"></div><svg id="svg" viewBox="0 0 440 260" role="img"></svg><p class="lg" data-t="leg"></p><div id="stp" class="stp"></div><p id="ex" class="ex"></p><div class="ctl"><button id="pv" onclick="go(-1)" data-t="prev"></button><button id="nx" onclick="go(1)" data-t="next"></button></div></div></section>
+<section id="props" class="wrap"><h2 data-t="n2"></h2><div class="card"><div class="fl"><input id="q" oninput="tbl()"><select id="fs" onchange="tbl()"></select><select id="ft" onchange="tbl()"></select></div><div class="sc"><table><thead id="th"></thead><tbody id="tb"></tbody></table></div></div>
+<div class="card"><h3 data-t="pt"></h3><div class="fl"><select id="ps" onchange="pred()"></select></div><dl id="po" class="pr"></dl></div></section>
+<section id="report" class="wrap"><h2 data-t="n3"></h2><p data-t="ri"></p><h3 data-t="r1"></h3><div id="c1" class="g"></div><h3 style="margin-top:20px" data-t="r2"></h3><div id="c2" class="g"></div><h3 style="margin-top:20px" data-t="r3"></h3><div class="card sc"><table><thead id="ch"></thead><tbody id="cb"></tbody></table></div></section>
+<section id="quiz" class="wrap"><h2 data-t="n4"></h2><div id="qz"></div><div class="card"><b id="sc"></b> <button onclick="A=[];quiz()" data-t="rs"></button></div></section>
+<footer data-t="ft2"></footer>
+<script>
+let L=/^ar/i.test(navigator.language||'ar')?0:1,mi=0,st=0,A=[];const $=s=>document.querySelector(s),V={H:1,C:4,N:5,O:6,Cl:7},CL={H:'#5b9bd5',C:'#6f7f8c',N:'#6a78d1',O:'#d9534f',Cl:'#3fae66'};
+const T={brand:['كيمياء تفاعلية','Chem Lab'],n1:['النماذج والرسوم المتحركة','Models & Animations'],n2:['جدول الخصائص','Properties Table'],n3:['التقرير العلمي','Science Report'],n4:['اختبر نفسك','Quiz'],
+h1:['النشاط الثاني: الرابطة التساهمية','Activity 2: Covalent Bonding'],sub:['تتكوّن الرابطة التساهمية عندما تتشارك ذرتا لا فلز زوجًا أو أكثر من الإلكترونات، فتكتمل الغلاف الخارجي لكل منهما.','A covalent bond forms when two non-metal atoms share one or more pairs of electrons, completing the outer shell of each.'],
+leg:['● إلكترون من إحدى الذرتين  ×  إلكترون من الذرة الأخرى','● electron from one atom   ×  electron from the other'],prev:['السابق','Back'],next:['التالي','Next'],
+pt:['مُتنبئ الخصائص: اختر نوع البنية','Property predictor: choose a structure type'],
+ri:['رغم أن معظم المواد التساهمية رديئة التوصيل ودرجات انصهارها منخفضة، فهناك حالات متقدمة غيّرت الصناعة الحديثة.','Most covalent substances are poor conductors with low melting points, but some advanced cases have reshaped modern industry.'],
+r1:['١. مواد تساهمية موصلة للكهرباء','1. Covalent materials that conduct electricity'],r2:['٢. مواد تساهمية حلّت محل الفلزات','2. Covalent materials replacing metals'],r3:['٣. مقارنة مع الفلزات التقليدية','3. Comparison with traditional metals'],
+rs:['إعادة','Retry'],ft2:['مصدر المعلومات تقريبي لأغراض تعليمية.','Values are approximate, for teaching.'],sc:['النتيجة','Score'],q:['ابحث بالاسم أو الصيغة…','Search name or formula…']};
+const KN=[['','single','double','triple'],['','أحادية','ثنائية','ثلاثية']];
+const STP=[['١ · الذرات المنفصلة','٢ · المشاركة','٣ · الجزيء النهائي'],['1 · Separate atoms','2 · Sharing','3 · Final molecule']];
+const M=[
+{f:'H₂',n:['الهيدروجين','Hydrogen'],a:[['H',-60,0,0],['H',60,0,1]],b:[[0,1,1]],t:['كل ذرة تحتاج إلكترونًا واحدًا لتكمل غلافها (قاعدة الثنائي).','Each atom needs one more electron to fill its shell (duet rule).']},
+{f:'Cl₂',n:['الكلور','Chlorine'],a:[['Cl',-60,0,0],['Cl',60,0,1]],b:[[0,1,1]],t:['كل ذرة كلور تحتاج إلكترونًا واحدًا لتبلغ ثمانية، ويبقى لكل ذرة ٣ أزواج حرة.','Each Cl needs one electron to reach eight; each keeps 3 lone pairs.']},
+{f:'O₂',n:['الأكسجين','Oxygen'],a:[['O',-60,0,0],['O',60,0,1]],b:[[0,1,2]],t:['كل ذرة تحتاج إلكترونين، فتتشاركان زوجين وتتكوّن رابطة ثنائية.','Each atom needs two electrons, so they share two pairs: a double bond.']},
+{f:'HCl',n:['كلوريد الهيدروجين','Hydrogen chloride'],a:[['H',-60,0,0],['Cl',60,0,1]],b:[[0,1,1]],t:['رابطة قطبية: الكلور يجذب الإلكترونات أكثر من الهيدروجين.','A polar bond: chlorine pulls the shared electrons harder than hydrogen.']},
+{f:'H₂O',n:['الماء','Water'],a:[['O',0,-20,0],['H',-65,40,1],['H',65,40,1]],b:[[0,1,1],[0,2,1]],t:['الأكسجين يحتاج إلكترونين فيشارك ذرتي هيدروجين؛ الجزيء منحنٍ وله زوجان حران.','Oxygen needs two electrons, so it shares with two H; the molecule is bent with 2 lone pairs.']},
+{f:'NH₃',n:['الأمونيا','Ammonia'],a:[['N',0,-25,0],['H',-75,35,1],['H',0,65,1],['H',75,35,1]],b:[[0,1,1],[0,2,1],[0,3,1]],t:['النيتروجين يحتاج ٣ إلكترونات فيشارك ٣ ذرات هيدروجين ويبقى له زوج حر واحد.','Nitrogen needs 3 electrons, shares with 3 H and keeps one lone pair.']},
+{f:'CH₄',n:['الميثان','Methane'],a:[['C',0,0,0],['H',0,-75,1],['H',0,75,1],['H',-90,0,1],['H',90,0,1]],b:[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],t:['الكربون يحتاج ٤ إلكترونات فيكوّن ٤ روابط أحادية ولا أزواج حرة عليه.','Carbon needs 4 electrons, forming 4 single bonds with no lone pairs.']},
+{f:'CO₂',n:['ثاني أكسيد الكربون','Carbon dioxide'],a:[['O',-100,0,1],['C',0,0,0],['O',100,0,1]],b:[[0,1,2],[1,2,2]],t:['يكوّن الكربون رابطتين ثنائيتين مع ذرتي أكسجين؛ الجزيء خطي.','Carbon forms two double bonds with two O atoms; the molecule is linear.']},
+{f:'C₂H₆',n:['الإيثان','Ethane'],a:[['C',-45,0,0],['C',45,0,1],['H',-95,-55,1],['H',-95,55,1],['H',-130,0,1],['H',95,-55,0],['H',95,55,0],['H',130,0,0]],b:[[0,1,1],[0,2,1],[0,3,1],[0,4,1],[1,5,1],[1,6,1],[1,7,1]],t:['كل كربون يكوّن ٤ روابط: رابطة C–C واحدة و٣ روابط C–H.','Each carbon makes 4 bonds: one C–C and three C–H.']}];
+const mk=(x,y,t)=>t?`<text x="${x}" y="${y+4.5}" text-anchor="middle" font-size="14" font-weight="800" fill="var(--x)">×</text>`:`<circle cx="${x}" cy="${y}" r="3.2" fill="var(--dot)"/>`;
+function draw(m,s){const k=s?1:1.25,P=m.a.map(a=>[220+a[1]*k,130+a[2]*k]);let o='<g class="fi">';
+const ang=(i,j)=>(Math.atan2(P[j][1]-P[i][1],P[j][0]-P[i][0])*180/Math.PI+360)%360;
+if(s)m.b.forEach(([i,j,n])=>{const[a,b]=[P[i],P[j]],L2=Math.hypot(b[0]-a[0],b[1]-a[1]),d=[(b[0]-a[0])/L2,(b[1]-a[1])/L2],nm=[-d[1],d[0]],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2;
+o+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="var(--bd)" stroke-width="2" stroke-dasharray="4 4"/>`;
+for(let q=0;q<n;q++){const f=(q-(n-1)/2)*15,cx=mx+nm[0]*f,cy=my+nm[1]*f;o+=`<circle class="pl" cx="${cx}" cy="${cy}" r="11" fill="var(--acc)" opacity=".25"/>`+mk(cx-d[0]*5,cy-d[1]*5,m.a[i][3])+mk(cx+d[0]*5,cy+d[1]*5,m.a[j][3])}});
+m.a.forEach((a,i)=>{const[x,y]=P[i];o+=`<circle cx="${x}" cy="${y}" r="15" fill="${CL[a[0]]}"/><text x="${x}" y="${y+5}" text-anchor="middle" font-size="${a[0]=='Cl'?12:14}" font-weight="800" fill="#fff">${a[0]}</text>`;
+if(!s)for(let e=0;e<V[a[0]];e++){const th=(-90+e*360/V[a[0]])*Math.PI/180;o+=mk(x+28*Math.cos(th),y+28*Math.sin(th),a[3])}
+if(s>1){const bs=m.b.reduce((z,b)=>z+(b[0]==i||b[1]==i?b[2]:0),0),used=[];m.b.forEach(([p,q])=>{if(p==i)used.push(ang(i,q));if(q==i)used.push(ang(i,p))});
+for(let l=0;l<(V[a[0]]-bs)/2;l++){let best=0,bd=-1;for(let c=0;c<360;c+=30){const d=Math.min(...used.map(u=>{const z=Math.abs(c-u)%360;return z>180?360-z:z}));if(d>bd){bd=d;best=c}}used.push(best);const r=best*Math.PI/180,px=x+28*Math.cos(r),py=y+28*Math.sin(r),ox=-Math.sin(r)*5,oy=Math.cos(r)*5;o+=mk(px+ox,py+oy,a[3])+mk(px-ox,py-oy,a[3])}}});
+return o+'</g>'}
+function lab(){const m=M[mi];$('#chips').innerHTML=M.map((x,i)=>`<button class="chip ${i==mi?'on':''}" onclick="mi=${i};st=0;lab()">${x.f}</button>`).join('');$('#mt').textContent=m.f+' — '+m.n[L];$('#svg').innerHTML=draw(m,st);
+$('#stp').innerHTML=STP[L].map((x,i)=>`<button class="${i==st?'on':''}" onclick="st=${i};lab()">${x}</button>`).join('');
+const tot=m.b.reduce((z,b)=>z+b[2],0),kd=[...new Set(m.b.map(b=>b[2]))].map(n=>KN[L][n]).join(L?' & ':' و '),sy=[...new Set(m.a.map(a=>a[0]))];
+$('#ex').textContent=st==0?(L?'Separate atoms and their valence electrons: ':'الذرات المنفصلة وإلكترونات تكافؤها: ')+sy.map(s=>`${s} = ${V[s]}`).join(L?', ':'، '):st==1?(L?`The atoms share ${tot} electron pair(s), forming ${kd} covalent bond(s).`:`تتشارك الذرات ${tot} زوج(ًا) من الإلكترونات فتتكوّن رابطة تساهمية ${kd}.`):(L?'Final molecule: lone pairs are shown, and every atom now has a full shell. ':'الجزيء النهائي: ظهرت الأزواج الحرة وصار لكل ذرة غلاف مكتمل. ')+m.t[L];
+$('#pv').disabled=st==0;$('#nx').disabled=st==2}
+function go(d){st=Math.max(0,Math.min(2,st+d));lab()}
+const W={g:['غاز','Gas'],l:['سائل','Liquid'],s:['صلب','Solid']},SO={y:['ذائب','Soluble'],p:['قليل الذوبان','Slightly'],n:['لا يذوب','Insoluble']},CD={y:['موصل','Conducts'],n:['غير موصل','Insulator']},SB={s:['جزيئية بسيطة','Simple molecular'],g:['شبكية عملاقة','Giant covalent']},SUB=['تسامي','sublimes'];
+const R=[[['الهيدروجين','Hydrogen'],'H₂','s',-259,-253,'g','p','n'],[['الكلور','Chlorine'],'Cl₂','s',-101,-34,'g','p','n'],[['الماء','Water'],'H₂O','s',0,100,'l','y','n'],[['الميثان','Methane'],'CH₄','s',-182,-162,'g','n','n'],[['الأمونيا','Ammonia'],'NH₃','s',-78,-33,'g','y','n'],[['ثاني أكسيد الكربون','Carbon dioxide'],'CO₂','s',-78,SUB,'g','p','n'],[['الإيثانول','Ethanol'],'C₂H₅OH','s',-114,78,'l','y','n'],[['السكروز','Sucrose'],'C₁₂H₂₂O₁₁','s',186,['يتحلل','decomposes'],'s','y','n'],[['اليود','Iodine'],'I₂','s',114,184,'s','p','n'],[['الألماس','Diamond'],'C','g',3550,4827,'s','n','n'],[['الجرافيت','Graphite'],'C','g',3650,SUB,'s','n','y'],[['رمل (SiO₂)','Silica (SiO₂)'],'SiO₂','g',1710,2230,'s','n','n']];
+const TH=[['المادة','الصيغة','البنية','انصهار °م','غليان °م','الحالة','الذوبان بالماء','التوصيل'],['Substance','Formula','Structure','M.p. °C','B.p. °C','State (25°C)','In water','Conducts']];
+const v=x=>Array.isArray(x)?x[L]:x;
+function opts(el,vals,lab){const c=el.value;el.innerHTML=vals.map((x,i)=>`<option value="${x}">${lab[i]}</option>`).join('');el.value=c||vals[0]}
+function tbl(){const q=$('#q').value.toLowerCase(),fs=$('#fs').value,ft=$('#ft').value;$('#th').innerHTML='<tr>'+TH[L].map(x=>`<th>${x}</th>`).join('')+'</tr>';
+$('#tb').innerHTML=R.filter(r=>(!fs||r[5]==fs)&&(!ft||r[2]==ft)&&(r[0].join(' ')+r[1]).toLowerCase().includes(q)).map(r=>`<tr><td><b>${r[0][L]}</b></td><td>${r[1]}</td><td><span class="tag">${SB[r[2]][L]}</span></td><td>${r[3]}</td><td>${v(r[4])}</td><td>${W[r[5]][L]}</td><td>${SO[r[6]][L]}</td><td>${CD[r[7]][L]}</td></tr>`).join('')||`<tr><td colspan="8">—</td></tr>`}
+const PL=[['درجة الانصهار','الحالة عند 25°م','التوصيل الكهربائي','الذوبان في الماء','السبب'],['Melting point','State at 25°C','Electrical conduction','Solubility in water','Why']];
+const PR={s:[['منخفضة','Low'],['غاز أو سائل أو صلب هش','Gas, liquid or soft solid'],['لا توصل (لا أيونات ولا إلكترونات حرة)','None (no ions or free electrons)'],['يختلف: القطبية تذوب والمتماثلة لا تذوب غالبًا','Varies: polar ones dissolve, non-polar mostly do not'],['القوى بين الجزيئات ضعيفة فيسهل التغلب عليها، أما الروابط داخل الجزيء فقوية ولا تنكسر.','Weak forces between molecules are easy to overcome; the strong bonds inside molecules stay intact.']],
+g:[['مرتفعة جدًا','Very high'],['صلب شديد الصلابة','Hard solid'],['لا توصل (كل الإلكترونات مثبتة في روابط)','None (all electrons locked in bonds)'],['لا يذوب','Insoluble'],['يجب كسر عدد هائل من الروابط التساهمية القوية في الشبكة كلها.','A huge number of strong covalent bonds throughout the lattice must be broken.']],
+d:[['مرتفعة جدًا','Very high'],['صلب طري ينزلق على طبقاته','Soft solid, layers slide'],['يوصل (إلكترون حر غير مرتبط في كل ذرة كربون)','Conducts (one delocalised electron per carbon)'],['لا يذوب','Insoluble'],['كل كربون يرتبط بثلاث ذرات فقط داخل طبقة، فيبقى إلكترون رابع حر الحركة.','Each carbon bonds to only three others in a layer, leaving a mobile fourth electron.']]};
+function pred(){const p=PR[$('#ps').value];$('#po').innerHTML=p.map((x,i)=>`<dt>${PL[L][i]}</dt><dd>${x[L]}</dd>`).join('')}
+const C1=[[['الجرافيت','Graphite'],['طبقات من ذرات كربون سداسية؛ الإلكترونات الحرة بين الطبقات توصل التيار، ويُستخدم في الأقطاب والبطاريات.','Layers of hexagonal carbon; delocalised electrons carry current. Used in electrodes and batteries.']],[['الجرافين','Graphene'],['طبقة واحدة سماكتها ذرة؛ موصلية عالية جدًا وقوة هائلة وشفافية، لشاشات وحساسات مرنة.','A one-atom-thick sheet: excellent conductivity, huge strength, transparent. For flexible screens and sensors.']],[['البوليمرات الموصلة','Conducting polymers'],['سلاسل بروابط أحادية وثنائية متناوبة تتيح حركة الإلكترونات عند التطعيم؛ تُستخدم في شاشات OLED والخلايا الشمسية.','Chains with alternating single and double bonds let electrons move once doped. Used in OLED screens and solar cells.']]];
+const C2=[[['ألياف الكربون','Carbon fibre'],['خيوط كربون مدمجة في راتنج؛ تصنع هياكل الطائرات والدراجات وأجنحة السيارات.','Carbon threads in resin; used for aircraft parts, bicycles and car bodies.']],[['البلاستيك المقوّى','Reinforced plastic'],['بلاستيك مدعّم بألياف زجاجية؛ يصنع هياكل القوارب والأنابيب والخزانات بدل الفولاذ.','Plastic strengthened with glass fibres; boat hulls, pipes and tanks instead of steel.']],[['السيراميك المتقدم','Advanced ceramics'],['كربيد السيليكون والألومينا؛ يتحمل حرارة عالية في المحركات وأقراص الفرامل وأدوات القطع.','Silicon carbide and alumina; withstand heat in engines, brake discs and cutting tools.']]];
+const CH=[['المادة (بديل عن)','الوزن','مقاومة التآكل','التكلفة','القوة'],['Material (replaces)','Weight','Corrosion resistance','Cost','Strength']];
+const CB=[[['ألياف الكربون (الفولاذ)','Carbon fibre (steel)'],['أخف بنحو ٥ مرات','About 5× lighter'],['لا تصدأ','Does not rust'],['أعلى','Higher'],['قوة عالية جدًا بالنسبة للوزن','Very high strength-to-weight']],[['البلاستيك المقوّى (الفولاذ والألومنيوم)','Reinforced plastic (steel, aluminium)'],['أخف كثيرًا','Much lighter'],['ممتازة','Excellent'],['أرخص وأسهل في التشكيل','Cheaper, easy to mould'],['متوسطة، أقل صلابة','Moderate, less stiff']],[['السيراميك المتقدم (سبائك المحركات)','Advanced ceramics (engine alloys)'],['أخف','Lighter'],['ممتازة ومقاوم للحرارة','Excellent, heat resistant'],['مرتفعة','High'],['قاسٍ جدًا لكنه هش','Very hard but brittle']]];
+const cards=(a,id)=>$(id).innerHTML=a.map(c=>`<div class="card"><h3>${c[0][L]}</h3><p style="margin:0">${c[1][L]}</p></div>`).join('');
+const Q=[[['كيف تتكوّن الرابطة التساهمية؟','How does a covalent bond form?'],[['بمشاركة أزواج من الإلكترونات','By sharing electron pairs'],['بانتقال إلكترونات من ذرة إلى أخرى','By transferring electrons'],['بجذب أيونات لإلكترونات حرة','By ions attracting free electrons']],0],
+[['كم زوجًا من الإلكترونات يتشاركه ذرتا الأكسجين في O₂؟','How many electron pairs do the two O atoms share in O₂?'],[['١','1'],['٢','2'],['٣','3']],1],
+[['أي مادة تساهمية توصل الكهرباء؟','Which covalent substance conducts electricity?'],[['الألماس','Diamond'],['الميثان','Methane'],['الجرافيت','Graphite']],2],
+[['لماذا تنخفض درجات انصهار المواد الجزيئية البسيطة؟','Why do simple molecular substances have low melting points?'],[['القوى بين الجزيئات ضعيفة','Forces between molecules are weak'],['الروابط التساهمية ضعيفة','Covalent bonds are weak'],['فيها إلكترونات حرة','They contain free electrons']],0],
+[['ما ميزة ألياف الكربون على الفولاذ؟','What advantage does carbon fibre have over steel?'],[['أخف ولا تصدأ','Lighter and does not rust'],['أرخص دائمًا','Always cheaper'],['أثقل وأصلب','Heavier and harder']],0]];
+function quiz(){$('#qz').innerHTML=Q.map((q,i)=>`<div class="card"><b>${i+1}. ${q[0][L]}</b>`+q[1].map((o,j)=>`<button class="op ${A[i]==null?'':j==q[2]?'ok':A[i]==j?'no':''}" onclick="if(A[${i}]==null){A[${i}]=${j};quiz()}">${o[L]}</button>`).join('')+'</div>').join('');
+$('#sc').textContent=T.sc[L]+': '+Q.filter((q,i)=>A[i]==q[2]).length+'/'+Q.length}
+function render(){document.documentElement.lang=L?'en':'ar';document.documentElement.dir=L?'ltr':'rtl';$('#lb').textContent=L?'عربي':'EN';document.title=T.h1[L];
+document.querySelectorAll('[data-t]').forEach(e=>e.textContent=T[e.dataset.t][L]);$('#q').placeholder=T.q[L];
+opts($('#fs'),['','g','l','s'],[L?'All states':'كل الحالات',...['g','l','s'].map(k=>W[k][L])]);opts($('#ft'),['','s','g'],[L?'All structures':'كل البُنى',SB.s[L],SB.g[L]]);
+opts($('#ps'),['s','g','d'],[SB.s[L],SB.g[L],L?'Giant covalent with free electrons (graphite)':'شبكية عملاقة بإلكترونات حرة (جرافيت)']);
+lab();tbl();pred();cards(C1,'#c1');cards(C2,'#c2');$('#ch').innerHTML='<tr>'+CH[L].map(x=>`<th>${x}</th>`).join('')+'</tr>';$('#cb').innerHTML=CB.map(r=>'<tr>'+r.map((c,i)=>`<td>${i?c[L]:'<b>'+c[L]+'</b>'}</td>`).join('')+'</tr>').join('');quiz()}
+function tog(){document.body.style.opacity=0;setTimeout(()=>{L=1-L;try{render()}finally{document.body.style.opacity=1}},220)}
+render();
+</script></body></html>
